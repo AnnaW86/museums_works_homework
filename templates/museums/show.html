@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="page_container" id="museum_info">
+    <div class="object_title">
+        <p>{{ museum.name }}</p>
+        <p><a href="/museums/{{ museum.id }}/edit">Edit</a></p>
+    </div>
+    <address>{{ museum.address }}</address>
+    <hr>
+    <div class="museum_details">
+        {% if museum_works|length > 0 %}
+            
+        <p>This museum currently features:</p>
+        <ul>
+            {% for work in museum_works %}
+            <li><a href="/works/{{work.id}}">{{work.title}} by {{work.artist}}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    <form class="button" action="{{ museum.id }}/add_to_works" method='POST'>
+        <button class="add_work">Add New Work</button>
+    </form>  
+    <fieldset class="delete_info">
+        <legend>Delete Museum</legend>
+        {% if museum_works|length > 0 %}
+        <p>To delete this museum, you need to delete all of its works first.</p>
+        <form class="button" action="{{ museum.id }}/delete_works" method='POST'>
+            <button>Delete All Works</button>
+        </form>  
+        {% endif %}
+        {% if museum_works|length == 0 %}
+        <form class="button" action="{{ museum.id }}/delete"  method='POST' disabled>
+            <button>Delete Museum</button>
+        </form> 
+        {% endif %}
+    </fieldset>
+</div>
+    
+{% endblock content %}

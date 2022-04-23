@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="page_container">
+    <div class="object_title">
+        <p>{{ work.title }} by {{ work.artist}}</p>
+        <p><a href="/works/{{ work.id }}/edit">Edit</a></p>
+    </div>
+    <hr>
+    <p>{{ work.year }}</p>
+    {% if work.museum.id %}
+    <p>Currently housed at the <a href="/museums/{{work.museum.id }}">{{ work.museum.name }}</a>.</p>
+    {% endif %}
+    <div class="button_container">
+        <form class="button" action="{{ work.id }}/delete" method='POST'>
+            <button>Delete</button>
+        </form>    
+    </div>
+</div>
+
+{% endblock content %}

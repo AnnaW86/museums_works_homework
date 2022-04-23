@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% for museum in all_museums %}
+  <div class="object">
+    <div class="content">
+      <a href="/museums/{{museum.id}}">{{museum.name}}</a>
+      <hr>
+      <address>
+        {{museum.address}}
+      </address>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

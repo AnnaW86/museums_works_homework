@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Works of Art Manager</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li>
+          <button class="dropbtn">
+            <a href="/">Home</a>
+          </button>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Museums</button>
+            <div class="dropdown-content">
+              <a href="/museums">View all museums</a>
+              <a href="/museums/new">Add new museum</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Artworks</button>
+            <div class="dropdown-content">
+              <a href="/works">View all artworks</a>
+              <a href="/works/new">Add new artwork</a>
+            </div>
+          </div>  
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <div class="container">
+    {%block home%}
+    {% endblock %}
+  </div>
+</body>
+</html>

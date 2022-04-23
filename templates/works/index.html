@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for work in all_works %}
+<div class="object">
+  
+  <div class="content">
+    <a href="/works/{{ work.id }}">{{ work.title }}</a>
+    <hr>
+    <p>by {{ work.artist }}</p>
+    <p>{{ work.museum.name }}</p>
+  </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}
