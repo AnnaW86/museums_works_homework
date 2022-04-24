@@ -2,8 +2,9 @@
 
 {% block content %}
 
-<form action="/museums/{{ museum.id }}/update_works" method="post">
-
+<div class="page_container">
+  <form action="/museums/{{ museum.id }}/update_works" method="post">
+  
     <div>
       <label for="title">Title:</label>
       <input type="text" id="title" name="title" placeholder="Title" required autofocus />
@@ -18,18 +19,12 @@
       <label for="year">Year:</label>
       <input type="number" id="year" name="year" placeholder="Year" required />
     </div>
-  
-    <!-- <div>
-      <label for="museum">Museum:</label>
-      <select id="museum" name="museum_id">
-        {% for museum in all_museums %}
-          <option value="{{ museum.id }}">{{ museum.name }}</option>
-        {% endfor %}
-      </select>
-    </div> -->
-  
-    <button type="submit">Add Work of Art to {{ museum.name }}</button>
-  
+    <div class="form_button">
+      <button type="submit">Add Work of Art to {{ museum.name }}</button>
+    </div>
+    
   </form>
+
+</div>
 
 {% endblock content %}

@@ -118,3 +118,25 @@ fieldset {
 .museum_details {
   margin-top: 30px;
 }
+
+label {
+  width: 80px;
+}
+input, select {
+  width: 200px;
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.form_button {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  margin-right: 25px;
+}

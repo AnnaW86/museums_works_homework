@@ -2,33 +2,37 @@
 
 {% block content %}
     
-
-<form action="/works/{{ work.id }}" method="post">
-    <div>
-        <label for="title">Title:</label>
-        <input type="text" name="title" id="title" value="{{ work.title }}" required autofocus>
+<div class="page_container">
+    <div class="form_container">
+        <form action="/works/{{ work.id }}" method="post">
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" value="{{ work.title }}" required autofocus>
+            </div>
+            <div>
+                <label for="artist">Artist:</label>
+                <input type="text" name="artist" id="artist" value="{{ work.artist }}" required>
+            </div>
+            <div>
+                <label for="year">Year:</label>
+                <input type="number" name="year" id="artist" value="{{ work.year }}" required>
+            </div>
+            <div>
+                <label for="museum">Museum:</label>
+                <select name="museum" id="museum">
+                    {% for museum in all_museums %}
+                        <option value="{{ museum.id }}"
+                        {% if work.museum.id == museum.id%} selected="selected" {% endif %}>
+                        {{ museum.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form_button">
+                <button type="submit">Update {{ work.title }}</button>
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="artist">Artist:</label>
-        <input type="text" name="artist" id="artist" value="{{ work.artist }}" required>
-    </div>
-    <div>
-        <label for="year">Year:</label>
-        <input type="number" name="year" id="artist" value="{{ work.year }}" required>
-    </div>
-    <div>
-        <label for="museum">Museum:</label>
-        <select name="museum" id="museum">
-            {% for museum in all_museums %}
-                <option value="{{ museum.id }}"
-                {% if work.museum.id == museum.id%} selected="selected" {% endif %}>
-                {{ museum.name }}</option>
-            {% endfor %}
-        </select>
-    </div>
-    
-    <button type="submit">Update {{ work.title }}</button>
-</form>
+</div>
 
 
 {% endblock content %}

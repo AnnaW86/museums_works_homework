@@ -4,9 +4,10 @@
 
 <div class="page_container">
     <div class="object_title">
-        <p>{{ work.title }} by {{ work.artist}}</p>
-        <p><a href="/works/{{ work.id }}/edit">Edit</a></p>
+        <h1>{{ work.title }}</h1>
+        <a href="/works/{{ work.id }}/edit"><i class="material-icons">edit</i></a>
     </div>
+    <p>by {{ work.artist}}</p>
     <hr>
     <p>{{ work.year }}</p>
     {% if work.museum.id %}
