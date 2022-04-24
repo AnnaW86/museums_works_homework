@@ -3,13 +3,14 @@
 
 {% for work in all_works %}
 <div class="object">
-  
-  <div class="content">
-    <a href="/works/{{ work.id }}">{{ work.title }}</a>
-    <hr>
-    <p>by {{ work.artist }}</p>
-    <p>{{ work.museum.name }}</p>
-  </div>
+  <a href="/works/{{ work.id }}">
+    <div class="content">
+      <p>{{ work.title }}</p>
+      <hr>
+      <p>by {{ work.artist }}</p>
+      <p>{{ work.museum.name }}</p>
+    </div>
+  </a>
 </div>
 
 {% endfor %}

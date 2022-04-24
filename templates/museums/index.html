@@ -4,13 +4,15 @@
 
 {% for museum in all_museums %}
   <div class="object">
-    <div class="content">
-      <a href="/museums/{{museum.id}}">{{museum.name}}</a>
-      <hr>
-      <address>
-        {{museum.address}}
-      </address>
-    </div>
+    <a href="/museums/{{ museum.id }}">
+      <div class="content">
+        <p>{{museum.name}}</p>
+        <hr>
+        <address>
+          {{museum.address}}
+        </address>
+      </div>
+    </a>
   </div>
 {% endfor %}
 

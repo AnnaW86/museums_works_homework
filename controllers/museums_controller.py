@@ -53,9 +53,11 @@ def edit_museum(id):
 def update_museum(id):
     name = request.form['name']
     address = request.form['address']
-    museum = Museum(name, address, id)
-    museum_repository.update(museum)
-    return render_template("museums/show.html", museum=museum_repository.select(id))
+    updated_museum = Museum(name, address, id)
+    museum_repository.update(updated_museum)
+    museum = museum_repository.select(id)
+    works = museum_repository.select_works(id)
+    return render_template("museums/show.html", museum=museum, museum_works = works)
 
 # DELETE
 # DELETE '/museums/<id>'

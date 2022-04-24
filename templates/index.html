@@ -1,6 +1,21 @@
 {% extends "base.html" %}
 {% block home %}
 <section class="page_container">
-Welcome to the Works of Art Manager
+    <div>
+        <h1 id="homepage_text">Welcome to the Works of Art Manager</h1>
+        <div class="homepage_options">
+            <a href="/museums">
+                <div class="options_box">
+                    <p>See all museums</p>
+                </div>  
+            </a>
+            <a href="/works">
+                <div class="options_box">
+                    <p>See all artworks</p>
+                </div>
+            </a>
+        </div>
+    </div>
 </section>
+
 {% endblock %}
